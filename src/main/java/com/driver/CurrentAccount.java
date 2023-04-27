@@ -4,22 +4,16 @@ import java.util.*;
 
 public class CurrentAccount extends BankAccount{
     String tradeLicenseId; //consists of Uppercase English characters only
-    public final static int minBalance = 5000;
-
     public CurrentAccount(String name, double balance, String tradeLicenseId) throws Exception {
-        super(name,balance,minBalance);
-        if(balance<minBalance)throw new Exception("Insufficient Balance");
+        super(name,balance,5000);
         this.tradeLicenseId = tradeLicenseId;
+        if(balance<5000)throw new Exception("Insufficient Balance");
         // minimum balance is 5000 by default. If balance is less than 5000, throw "Insufficient Balance" exception
 
     }
 
     public String getTradeLicenseId() {
         return tradeLicenseId;
-    }
-
-    public void setTradeLicenseId(String tradeLicenseId) {
-        this.tradeLicenseId = tradeLicenseId;
     }
 
     public void validateLicenseId() throws Exception {
